@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-12">
+        <center>
+          
+          <h1>Participación Cuidadana</h1>
+          <h2>ELECCION DE DELEGADOS</h2>
+          <hr>
+          <h4>Formulario de votación</h4>
+        </center>
+        <br>
+        <br>
+
+        <div class="jumbotron">
+          <h1 class="display-4">Gracias por su participación!</h1>
+          <p class="lead">Su voto ha sido registrado satisfactoriamente.</p>
+          <hr class="my-4">
+          <p>Gerencia de Planeamiento Estrategico - Municipalidad Provincial de Ilo</p>
+          <a class="btn btn-primary btn-lg" href="http://www.mpi.gob.pe">Ver nuestra pagina</a>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+
+
+  
+  <script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
+  <script src="js/vote.js" type="text/javascript"></script>
+
+  <script type="text/javascript">
+    $(document).keypress(function(e) {
+       if(e.which == 13) {
+        e.preventDefault();
+           //alert('You pressed enter!');
+           var numero = document.getElementById('dni').value;
+
+              console.log(numero);
+              var parametros = {
+                "numero" : numero
+              };
+              $.ajax({
+                 data: parametros,
+                 url: 'Controller/voto.controller.php',
+                 type: 'post',  // Envío con método POST
+                 beforeSend: function(){
+                    $("#contenido").html("Enviando....");
+                 },
+                 success: function(res){
+                    $("#contenido").html(res);
+                 }
+                 
+                 
+              });  
+       }
+});
+    $(document).ready(function(e){
+        
+          $("#btnBuscar").click(function(){
+              var numero = document.getElementById('dni').value;
+
+              console.log(numero);
+              var parametros = {
+                "numero" : numero
+              };
+              $.ajax({
+                 data: parametros,
+                 url: 'Controller/voto.controller.php',
+                 type: 'post',  // Envío con método POST
+                 beforeSend: function(){
+                    $("#contenido").html("Enviando....");
+                 },
+                 success: function(res){
+                    $("#contenido").html(res);
+                 }
+                 
+                 
+              });  
+          }); 
+
+          $("#btnVotar").click(function(){
+              console.log("press");
+          });
+            
+    });
+    
+
+  </script>
+    
+</body>
+
+</html>
