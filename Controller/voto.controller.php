@@ -13,24 +13,26 @@ if($data['voto'] == false)
 
 	if($data){
 
-	  $nombre_union = $data['nombre']." ".$data['apellidos']; 
-
-
-		$cadena = "
+	  	$cadena = "
 			  <div class='form-group datos'>
 			  	<input type='hidden' class='form-control' name='idparticipante' name='idparticipante' value='".$data['idparticipantes']."'>
 	            <label for='nombre'>Nombre y apellidos</label>
-	            <input type='text' class='form-control' name='nombre' id='nombre' value='".$nombre_union."'>
+	            <input type='text' class='form-control' name='nombre' id='nombre' value='".$data['nombre']."'>
 	          </div>
 	          <div class='form-group datos'>
 	            <label for='numdni'>Numero de DNI</label>
 	            <input type='text' class='form-control' name='numdni' id='numdni' value='".$data['dni']."'>
 	          </div>
 	          <div class='form-group datos'>
-	            <label for='sector'>Barrio / Sector</label>
-	            <input type='text' class='form-control' name='sector' id='sector' value='".$data['barrio']."'>
+	            <label for='sector'>Zona / Sector</label>
+	            <input type='text' class='form-control' name='sector' id='sector' value='".$data['zona']."'>
+	          </div>
+	          <div class='form-group datos'>
+	            <label for='sector'>Organizacion</label>
+	            <input type='text' class='form-control' name='sector' id='sector' value='".$data['organizacion']."'>
 	          </div>
 	          
+	  
 	          <hr>
 	          
 	          <div class='row'>

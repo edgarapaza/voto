@@ -16,7 +16,7 @@ class Voto
   function Consultadni($dni)
   {
     
-    $sql = "SELECT idparticipantes, nombre, apellidos, dni, sexo, barrio, voto FROM participantes WHERE dni = " . $dni ;
+    $sql = "SELECT idparticipantes,nombre,dni,organizacion,nivel,zona,celular,email,direccion FROM participantes WHERE dni = '".$dni."'";
 
     if(!$datos = $this->conn->query($sql))
     {
